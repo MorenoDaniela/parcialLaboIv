@@ -1,2 +1,14 @@
-<button (click)="mostrarExito()">exito</button>
-<button (click)="mostrarError()">error</button>
+<!-- <button (click)="mostrarExito()">exito</button>
+<button (click)="mostrarError()">error</button> -->
+<div class="container text-center"  style="background-color: aqua; margin:auto">
+<h1>{{perfilGit.login}}</h1>
+<img [src]="perfilGit.avatar_url">
+<br>
+<h5>Me siguen: {{perfilGit.followers}}</h5>
+<br>
+<h5>Sigo: {{perfilGit.following}}</h5>
+<br>
+<h5> Repos URL: <a>{{perfilGit.repos_url}}</a></h5>
+<br>
+<br>
+</div>

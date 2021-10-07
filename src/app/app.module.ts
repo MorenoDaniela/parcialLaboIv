@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,15 +13,24 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BienvenidoComponent } from './Componentes/bienvenido/bienvenido.component';
+import { LoginComponent } from './Componentes/login/login.component';
+import { AltaProductoComponent } from './Componentes/alta-producto/alta-producto.component';
+import { PaisesComponent } from './Componentes/paises/paises.component';
+import { ProductoAltaConPaisesComponent } from './Componentes/producto-alta-con-paises/producto-alta-con-paises.component';
 @NgModule({
   declarations: [
     AppComponent,
-    BienvenidoComponent
+    BienvenidoComponent,
+    LoginComponent,
+    AltaProductoComponent,
+    PaisesComponent,
+    ProductoAltaConPaisesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFirestoreModule,

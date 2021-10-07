@@ -1,0 +1,7 @@
+<div class="login">
+    <input type="text" placeholder="Usuario" [(ngModel)]='Usuario.email'>
+  <input type="password" placeholder="Contraseña" [(ngModel)]='Usuario.password'>
+  <a href="#" class="forgot">¿Olvidaste tu contraseña?</a>
+  <input type="submit" (click)="loguear()"value="Logueate">
+  <input type="submit" (click)="CompletarCampos()" value="Completar Campos">
+  </div>

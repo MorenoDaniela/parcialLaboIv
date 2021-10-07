@@ -1,0 +1,72 @@
+<!-- <app-navbar [usuario]="Usuario"></app-navbar> -->
+
+<form [formGroup]="formulario" (ngSubmit)="aceptar()">
+  <br>
+    <div class="container" style="margin:auto; background-color:#43ECE4 ;">
+        <!-- <h1 class="text-center">ENCUESTA</h1> -->
+        <br>
+        <div class="form-control">
+            
+          <div class="form-group">
+                <div class="row">
+                    <div class="col-3">
+                        <label class="text-muted">Codigo</label>
+                        <input class="form-control" type="text" placeholder="codigo" formControlName="codigo">
+                        <span class="text-danger" *ngIf="formulario.get('codigo')?.hasError('required') && formulario.get('codigo')?.touched">El codigo es requerido.</span>
+                    </div>
+                    <div class="col-3">
+                        <label class="text-muted">Descripcion</label>
+                        <input class="form-control" type="text" placeholder="descripcion" formControlName="descripcion">
+                        <span class="text-danger" *ngIf="formulario.get('descripcion')?.hasError('required') && formulario.get('descripcion')?.touched">La descripcion es requerido.</span>
+                    </div>
+                    <div class="col-3">
+                        <label class="text-muted">Precio</label>
+                        <input class="form-control" type="number" placeholder="precio" formControlName="precio">
+                        <span class="text-danger" *ngIf="formulario.get('precio')?.hasError('min') && formulario.get('precio')?.touched">El precio minimo es 100.</span>
+                        <span class="text-danger" *ngIf="formulario.get('precio')?.hasError('required') && formulario.get('precio')?.touched">El precio es requerido.</span>
+                        <span class="text-danger" *ngIf="formulario.get('precio')?.hasError('max') && formulario.get('precio')?.touched">El preci máximo es 99.</span>
+                    </div>
+                    <div class="col-3">
+                        <label class="text-muted">Pais</label>
+                        <input class="form-control" type="text" readonly placeholder="pais" formControlName="pais">
+                        <!-- <span class="text-danger" *ngIf="formulario.get('pais')?.hasError('estaMal') && formulario.get('stock')?.touched">El stock debe tener solo numeros. </span> -->
+                        <span class="text-danger" *ngIf="formulario.get('pais')?.hasError('required') && formulario.get('pais')?.touched">El pais es requerido. </span>
+                        <!-- <span class="text-danger" *ngIf="formulario.get('stock')?.hasError('maximo')">El teléfono debe tener solo 10 caracteres.</span> -->
+                    </div>
+                    <div class="col-3">
+                        <label class="text-muted">Comestible</label>
+                        <input class="form-control" type="text" placeholder="stock" formControlName="stock">
+                        <span class="text-danger" *ngIf="formulario.get('stock')?.hasError('required') && formulario.get('stock')?.touched">El stock es requerido.</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-10" >
+                              <label class="text-muted">¿Comestible?</label>
+    
+                              <div class="form-check">
+                                  <input class="form-check-input" type="radio" id="comestibleSi" value="si"  formControlName="comestible">
+                                    <label class="form-check-label" for="comestibleSi">
+                                      SI
+                                    </label>
+                              </div>
+    
+                              <div class="form-check">
+                                  <input class="form-check-input" type="radio" id="comestibleNo" value="no"  formControlName="comestible">
+                                  <label class="form-check-label" for="comestibleNo">
+                                  NO
+                                  </label>
+                              </div>
+    
+                              <span class="text-danger" *ngIf="formulario.get('comestible')?.hasError('required') && formulario.get('comestible')?.touched">Debes seleccionar una opción.</span>
+                        </div>
+                    </div>
+                </div>                   
+            </div>           
+        </div>
+        <br>
+        <div class="col-12" style="margin-left: 87%;">
+          <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid">Dar de alta</button>
+        </div>
+        <br>
+     
+</div>
+</form>
