@@ -92,7 +92,7 @@ export class IngresarService{
       // this.router.navigate(['ingreso/login']);
     });
     localStorage.removeItem('usuarioApp');
-    this.router.navigate(['home']);
+    this.router.navigate(['bienvenido']);
 
   }
 

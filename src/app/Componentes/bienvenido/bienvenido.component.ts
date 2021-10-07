@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/Clases/usuario';
 import { GitService } from 'src/app/Servicios/git.service';
+import { IngresarService } from 'src/app/Servicios/ingresar.service';
 import { ToasterService } from 'src/app/Servicios/toaster.service';
 import { Github } from 'src/Clases/github';
 @Component({
@@ -8,12 +10,20 @@ import { Github } from 'src/Clases/github';
   styleUrls: ['./bienvenido.component.css']
 })
 export class BienvenidoComponent implements OnInit {
-
+  Usuario: Usuario = new Usuario();
   public perfilGit: Github = new Github();
-  constructor(public toastr :ToasterService, public git: GitService) { }
+  constructor(public toastr :ToasterService, public git: GitService, public authService: IngresarService) { }
 
   ngOnInit(): void {
-    this.cargarGit();
+    if (this.authService.getItemLocal()==null)
+    {
+      this.Usuario.estaLogueado=false;
+    }else
+    {
+      this.Usuario  = this.authService.getItemLocal();
+      this.cargarGit();
+    }
+   
   }
 
 

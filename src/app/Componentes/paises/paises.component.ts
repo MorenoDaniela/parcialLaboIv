@@ -17,6 +17,8 @@
 
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Pais } from 'src/app/Clases/pais';
+import { Usuario } from 'src/app/Clases/usuario';
+import { IngresarService } from 'src/app/Servicios/ingresar.service';
 import { PaisesService } from 'src/app/Servicios/paises.service';
 
 
@@ -27,14 +29,22 @@ import { PaisesService } from 'src/app/Servicios/paises.service';
   styleUrls: ['./paises.component.css']
 })
 export class PaisesComponent implements OnInit {
-
+  Usuario: Usuario = new Usuario();
   public arrayPaises :Array<any> = [];
   public paisSeleccionado:Pais= new Pais();
   @Output()  eventoPaisSeleccionado : EventEmitter<Pais> = new EventEmitter<Pais>();
-  constructor(public paisesService: PaisesService) { }
+  constructor(public paisesService: PaisesService, public authService: IngresarService) { }
 
   ngOnInit(): void {
-    this.cargarPaises();
+    if (this.authService.getItemLocal()==null)
+    {
+      this.Usuario.estaLogueado=false;
+    }else
+    {
+      this.Usuario  = this.authService.getItemLocal();
+      this.cargarPaises();
+    }
+    
   }
 
   cargarPaises()

@@ -17,6 +17,7 @@ import { LoginComponent } from './Componentes/login/login.component';
 import { AltaProductoComponent } from './Componentes/alta-producto/alta-producto.component';
 import { PaisesComponent } from './Componentes/paises/paises.component';
 import { ProductoAltaConPaisesComponent } from './Componentes/producto-alta-con-paises/producto-alta-con-paises.component';
+import { NavbarComponent } from './Componentes/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { ProductoAltaConPaisesComponent } from './Componentes/producto-alta-con-
     LoginComponent,
     AltaProductoComponent,
     PaisesComponent,
-    ProductoAltaConPaisesComponent
+    ProductoAltaConPaisesComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
