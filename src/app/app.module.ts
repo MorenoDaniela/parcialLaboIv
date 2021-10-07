@@ -8,9 +8,15 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { BienvenidoComponent } from './Componentes/bienvenido/bienvenido.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BienvenidoComponent
   ],
   imports: [
     BrowserModule,
@@ -20,6 +26,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
