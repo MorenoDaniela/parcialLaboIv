@@ -1,0 +1,7 @@
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold">Productos</h1>
+      <p class="col-md-8 fs-4">Listado de productos por descripcion, seleccione alguno para ver sus detalles.</p>
+      <button class="btn btn-primary btn-lg" style="margin-left: 1px;" type="button" *ngFor="let produ of listaProductos" (click)="emitirProducto(produ)">{{produ.descripcion}}</button>
+    </div>
+  </div>

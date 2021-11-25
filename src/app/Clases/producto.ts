@@ -1,8 +1,9 @@
 export class Producto {
-    código!: string;
-    descripción!: string;
+    codigo!: string;
+    descripcion!: string;
     precio!: string;
     stock!: string;
     pais!: string;
     comestible: boolean = false;
+    fecha!:string;
 }

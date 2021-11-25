@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/Clases/usuario';
 import { GitService } from 'src/app/Servicios/git.service';
 import { IngresarService } from 'src/app/Servicios/ingresar.service';
@@ -12,17 +13,10 @@ import { Github } from 'src/Clases/github';
 export class BienvenidoComponent implements OnInit {
   Usuario: Usuario = new Usuario();
   public perfilGit: Github = new Github();
-  constructor(public toastr :ToasterService, public git: GitService, public authService: IngresarService) { }
+  constructor(public toastr :ToasterService, public git: GitService, public authService: IngresarService, public router: Router) { }
 
   ngOnInit(): void {
-    if (this.authService.getItemLocal()==null)
-    {
-      this.Usuario.estaLogueado=false;
-    }else
-    {
-      this.Usuario  = this.authService.getItemLocal();
-      this.cargarGit();
-    }
+    this.cargarGit();
    
   }
 
@@ -51,4 +45,5 @@ export class BienvenidoComponent implements OnInit {
   // {
   //   this.toastr.showError("hola","titulo",300);
   // }
+
 }

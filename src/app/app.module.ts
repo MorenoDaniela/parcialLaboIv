@@ -18,6 +18,17 @@ import { AltaProductoComponent } from './Componentes/alta-producto/alta-producto
 import { PaisesComponent } from './Componentes/paises/paises.component';
 import { ProductoAltaConPaisesComponent } from './Componentes/producto-alta-con-paises/producto-alta-con-paises.component';
 import { NavbarComponent } from './Componentes/navbar/navbar.component';
+import { ProductoDetailsComponent } from './Componentes/producto-details/producto-details.component';
+import { ListaProductosComponent } from './Componentes/lista-productos/lista-productos.component';
+import { ProductoDetalleComponent } from './Componentes/producto-detalle/producto-detalle.component';
+import { ProductoPaisComponent } from './Componentes/producto-pais/producto-pais.component';
+import { ABMContainerComponent } from './Componentes/abmcontainer/abmcontainer.component';
+import { AltaContainerComponent } from './Componentes/alta-container/alta-container.component';
+import { BajaContainerComponent } from './Componentes/baja-container/baja-container.component';
+import { ModificacionContainerComponent } from './Componentes/modificacion-container/modificacion-container.component';
+import { ListaContainerComponent } from './Componentes/lista-container/lista-container.component';
+import { RegistroAdministradorComponent } from './Componentes/registro-administrador/registro-administrador.component';
+import { RegistroEmpleadoComponent } from './Componentes/registro-empleado/registro-empleado.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +37,18 @@ import { NavbarComponent } from './Componentes/navbar/navbar.component';
     AltaProductoComponent,
     PaisesComponent,
     ProductoAltaConPaisesComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProductoDetailsComponent,
+    ListaProductosComponent,
+    ProductoDetalleComponent,
+    ProductoPaisComponent,
+    ABMContainerComponent,
+    AltaContainerComponent,
+    BajaContainerComponent,
+    ModificacionContainerComponent,
+    ListaContainerComponent,
+    RegistroAdministradorComponent,
+    RegistroEmpleadoComponent
   ],
   imports: [
     BrowserModule,

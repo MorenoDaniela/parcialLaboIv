@@ -42,13 +42,20 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  CompletarCampos(){
+  CompletarCamposAdmin(){
     this.Usuario.email = "denu.moreno.1990@gmail.com";
     this.Usuario.password = "123456";
+    this.Usuario.tipo ="Administrador";
+}
+
+CompletarCamposEmpleado(){
+  this.Usuario.email = "denu.av@hotmail.com";
+    this.Usuario.password = "123456";
+    this.Usuario.tipo ="Empleado";
 }
 
 loguear()
 {
-  this.authService.loginWithEmailAndPassword(this.Usuario.email,this.Usuario.password )
+  this.authService.loginWithEmailAndPassword(this.Usuario.email,this.Usuario.password,this.Usuario.tipo)
 }
 }

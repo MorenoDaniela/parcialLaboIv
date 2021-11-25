@@ -1,7 +1,5 @@
-<!-- <button (click)="mostrarExito()">exito</button>
-<button (click)="mostrarError()">error</button> -->
-<app-navbar  [usuario]="Usuario"></app-navbar>
-<div class="container text-center"  style="background-color: aqua; margin:auto">
+
+<!-- <div class="container text-center"  style="background-color: aqua; margin:auto">
 <h1>{{perfilGit.login}}</h1>
 <img [src]="perfilGit.avatar_url">
 <br>
@@ -12,4 +10,94 @@
 <h5> Repos URL: <a>{{perfilGit.repos_url}}</a></h5>
 <br>
 <br>
-</div>
+</div> -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+  
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+  </head>
+  <body>
+
+
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">{{perfilGit.login}}</h1>
+        <p class="lead text-muted">Perfil repost URL</p>
+        <p>
+          <a href="{{perfilGit.repos_url}}" class="btn btn-primary my-2">{{perfilGit.repos_url}}</a>
+        
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col-6">
+          <div class="card shadow-sm">
+            <img [src]="perfilGit.avatar_url" width="200px" height="225" style="margin: auto;" class="bd-placeholder-img">
+            <!-- <svg class="bd-placeholder-img card-img-top"  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+
+            <div class="card-body">
+              <!-- <p class="card-text">Daniela moreno, programadora.</p> -->
+              <p class="card-text">Seguidores {{perfilGit.followers}}</p>
+              <p class="card-text">Seguidos {{perfilGit.following}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button"  class="btn btn-sm btn-outline-secondary" href="'https://github.com/MorenoDaniela'">https://github.com/MorenoDaniela</button>
+                
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+       
+       
+        
+        
+
+      
+       
+       
+      </div>
+    </div>
+  </div>
+
+</main>
+
+
+
+
+      
+  </body>
+</html>

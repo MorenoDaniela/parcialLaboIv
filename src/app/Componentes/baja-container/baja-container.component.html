@@ -1,0 +1,26 @@
+<div class="card mb-4 rounded-3 shadow-sm">
+    <div class="card-header py-3">
+      <h4 class="my-0 fw-normal">Baja</h4>
+    </div>
+    <div class="card-body">
+      <h1 class="card-title pricing-card-title">Container</h1>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Código</span>
+        <input type="text" class="form-control" placeholder="Código" value="{{containerAMostrar.codigo}}" readonly>
+        
+      </div>
+    
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Marca</span>
+        <input type="text" class="form-control" placeholder="Marca" value="{{containerAMostrar.marca}}" readonly>
+        
+      </div>
+     
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Capacidad</span>
+        <input type="text" class="form-control" placeholder="Capacidad" value="{{containerAMostrar.capacidad}}" readonly>
+      </div>
+      
+      <button type="button" class="w-100 btn btn-lg btn-outline-primary" (click)="eliminar()">Eliminar</button>
+    </div>
+  </div>

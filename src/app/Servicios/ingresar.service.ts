@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 // import { AngularFireAuth } from "@angular/fire/auth";
 // import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
+import { NavbarComponent } from '../Componentes/navbar/navbar.component';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import * as firebase from 'firebase/compat';
 // import * as firebase from 'firebase';
@@ -35,7 +36,7 @@ export class IngresarService{
 
 
   //Auth with emailAndPassword
-  loginWithEmailAndPassword(email:string,pass:string){
+  loginWithEmailAndPassword(email:string,pass:string, tipoUsuario:string){
       this.afAuth.signInWithEmailAndPassword(email,pass)
           .then((result)=>{    
              
@@ -43,11 +44,13 @@ export class IngresarService{
               this.Usuario.email = email;
               this.Usuario.fecha= new Date().toLocaleString();
               this.Usuario.estaLogueado=true;
+              this.Usuario.tipo= tipoUsuario;
              this.setItemLocal();          
               this.UsuariosRef.add(
                 {email:email,
                   fechaLogueo:new Date().toLocaleString(),
                   id:result.user!.uid});
+                  NavbarComponent.updateUserStatus.next(true);
               // this.Usuario.estaLogueado=true;
               this.toastr.showExito("Logueo exitoso.","Te logueaste", 3000)
               this.router.navigate(['producto/altaProducto']);
@@ -61,11 +64,11 @@ export class IngresarService{
           });
   }
 
-  registroWithEmailAndPassword(email:string,pass:string){
+  registroWithEmailAndPassword(email:string,pass:string, tipoUsuario:string){
       this.afAuth.createUserWithEmailAndPassword(email,pass)
       .then((result)=>{
           this.toastr.showExito("Cuenta creada Exitosamente.","Registro exitoso", 3000)
-          this.loginWithEmailAndPassword(email,pass);
+          this.loginWithEmailAndPassword(email,pass,tipoUsuario);
       })
       .catch((res)=>{
         console.log(res);

@@ -2,7 +2,7 @@
 
 <form [formGroup]="formulario" (ngSubmit)="aceptar()">
   <br>
-    <div class="container" style="margin:auto; background-color:#43ECE4 ;">
+    <div class="container" style="margin:auto;">
         <!-- <h1 class="text-center">ENCUESTA</h1> -->
         <br>
         <div class="form-control">
@@ -22,9 +22,9 @@
                     <div class="col-3">
                         <label class="text-muted">Precio</label>
                         <input class="form-control" type="number" placeholder="precio" formControlName="precio">
-                        <span class="text-danger" *ngIf="formulario.get('precio')?.hasError('min') && formulario.get('precio')?.touched">El precio minimo es 100.</span>
+                        <span class="text-danger" *ngIf="formulario.get('precio')?.hasError('min') && formulario.get('precio')?.touched">El precio minimo es 1.</span>
                         <span class="text-danger" *ngIf="formulario.get('precio')?.hasError('required') && formulario.get('precio')?.touched">El precio es requerido.</span>
-                        <span class="text-danger" *ngIf="formulario.get('precio')?.hasError('max') && formulario.get('precio')?.touched">El preci máximo es 99.</span>
+                        <span class="text-danger" *ngIf="formulario.get('precio')?.hasError('max') && formulario.get('precio')?.touched">El precio máximo es 99.</span>
                     </div>
                     <div class="col-3">
                         <label class="text-muted">Pais</label>
@@ -63,7 +63,7 @@
             </div>           
         </div>
         <br>
-        <div class="col-12" style="margin-left: 87%;">
+        <div class="col-12" style="margin-left: 83%;">
           <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid">Dar de alta</button>
         </div>
         <br>

@@ -5,5 +5,6 @@ export class Usuario {
     id!: string;
     nombre!: string;
     fecha!: string;
+    tipo!:string;
   }
   

@@ -1,0 +1,32 @@
+<form [formGroup]="formulario" (ngSubmit)="aceptar()">
+  <div class="card mb-4 rounded-3 shadow-sm">
+    <div class="card-header py-3">
+      <h4 class="my-0 fw-normal">Alta</h4>
+    </div>
+    <div class="card-body">
+      <h1 class="card-title pricing-card-title">Container</h1>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Código</span>
+        <input type="text" class="form-control" placeholder="Código" formControlName="codigo">
+        
+      </div>
+      <span class="text-danger mb-3" *ngIf="formulario.get('codigo')?.hasError('required') && formulario.get('codigo')?.touched">El codigo es requerido.</span>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Marca</span>
+        <input type="text" class="form-control" placeholder="Marca" formControlName="marca">
+        
+      </div>
+      <span class="text-danger mb-3" *ngIf="formulario.get('marca')?.hasError('required') && formulario.get('marca')?.touched">La marca es requerida.</span>
+      <div class="input-group mb-3">
+        <span class="input-group-text" >Capacidad</span>
+        <input type="text" class="form-control" placeholder="Capacidad" formControlName="capacidad">
+        <span class="text-danger" *ngIf="formulario.get('capacidad')?.hasError('min') && formulario.get('capacidad')?.touched">La capacidad minima es 1.</span>
+                        <span class="text-danger" *ngIf="formulario.get('capacidad')?.hasError('required') && formulario.get('capacidad')?.touched">La capacidad es requerida.</span>
+                        <span class="text-danger" *ngIf="formulario.get('capacidad')?.hasError('max') && formulario.get('capacidad')?.touched">La capacidad máxima es 99.</span>
+      </div>
+      
+      <button type="submit" [disabled]="formulario.invalid" class="w-100 btn btn-lg btn-outline-primary">Dar de alta</button>
+    </div>
+  </div>
+</form>

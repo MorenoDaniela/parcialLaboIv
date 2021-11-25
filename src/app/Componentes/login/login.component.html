@@ -2,6 +2,9 @@
     <input type="text" placeholder="Usuario" [(ngModel)]='Usuario.email'>
   <input type="password" placeholder="Contraseña" [(ngModel)]='Usuario.password'>
   <a href="#" class="forgot">¿Olvidaste tu contraseña?</a>
-  <input type="submit" (click)="loguear()"value="Logueate">
-  <input type="submit" (click)="CompletarCampos()" value="Completar Campos">
+  <input type="submit"  class="btn btn-primary btn-block btn-large" (click)="loguear()"value="Logueate">
+  <input type="submit"  class="btn btn-primary btn-block btn-large" (click)="CompletarCamposAdmin()" value="Completar Campos Administrador">
+  <input type="submit"  class="btn btn-primary btn-block btn-large" (click)="CompletarCamposEmpleado()" value="Completar Campos Empleado">
   </div>
+
+
