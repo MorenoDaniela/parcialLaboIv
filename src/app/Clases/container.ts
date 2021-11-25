@@ -3,4 +3,5 @@ export class Container {
     id!: string;
     marca!: string;
     capacidad!: string;
+    arrayProducto!:[];
 }

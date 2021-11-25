@@ -94,9 +94,10 @@ export class IngresarService{
       this.Usuario.fecha="";
       // this.router.navigate(['ingreso/login']);
     });
+    NavbarComponent.updateUserStatus.next(false);
     localStorage.removeItem('usuarioApp');
     this.router.navigate(['bienvenido']);
-
+    
   }
 
 

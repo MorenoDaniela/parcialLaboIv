@@ -21,10 +21,10 @@ export class ListaProductosComponent implements OnInit {
 
   listarProductos()
   {
-    this.listaProductos = new Array<Producto>();
+    
    this.listadoProductos.snapshotChanges().pipe(
      map( (data: any) => {
-       
+      this.listaProductos = new Array<Producto>();
        data.map((producto: any) =>{
         var productoNuevo: Producto = new Producto();
         productoNuevo.codigo = producto.payload.doc.data().codigo;
@@ -34,7 +34,8 @@ export class ListaProductosComponent implements OnInit {
         productoNuevo.precio = producto.payload.doc.data().precio;
         productoNuevo.stock = producto.payload.doc.data().stock;
         productoNuevo.fecha = producto.payload.doc.data().fecha;
-        console.log(productoNuevo);
+        productoNuevo.id = producto.payload.doc.data().id;
+        // console.log(productoNuevo);
           this.listaProductos.push(productoNuevo);       
        })
      })

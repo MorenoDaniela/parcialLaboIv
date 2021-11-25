@@ -36,6 +36,21 @@ export class ContainerService {
     this.db.collection("containers").doc(id).update({marca:marca, capacidad:capacidad});
   }
 
+  UpdateCapacidad(id:string, capacidad:number, codigoProducto:string, stockCodigoProducto:number, arrayRecibido:any)
+  {
+    console.log(id +""+ capacidad);
+    console.log(arrayRecibido);
+    let arrayProducto = arrayRecibido;
+    let codigo = codigoProducto;
+    let producto = {codigo: stockCodigoProducto};
+    let objeto: Object = {codigoProducto: codigoProducto, stockCodigoProducto:stockCodigoProducto};
+    arrayProducto.push(objeto);
+
+    
+    this.db.collection("containers").doc(id).update({capacidad:capacidad,arrayProducto});
+    //codigoProducto:codigoProducto,stockCodigoProducto:stockCodigoProducto
+  }
+
   UpdateID(id:string)
   {
     console.log(id +"_");

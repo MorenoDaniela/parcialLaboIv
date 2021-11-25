@@ -20,29 +20,44 @@ export class NavbarComponent implements OnInit {
   // usuario: Usuario = new Usuario();
   constructor(public ingresarService: IngresarService, public router: Router)
    {
+    console.log("CONSTR NAV");
     NavbarComponent.updateUserStatus.subscribe(res => {
       this.cambiar();
     })
     }
 
     ngOnInit(): void {
-      console.log("oninit");
+      console.log("oninit NAV");
      this.cambiar()
     }
     ngOnChanges(changes: SimpleChanges): void {
-      this.cambiar();
+      console.log("CHANGES NAV");
+      NavbarComponent.updateUserStatus.subscribe(res => {
+        this.cambiar();
+      })
     }  
 
   logOut()
   {
     this.ingresarService.logout();
+    this.salirOtraVez();
     // localStorage.removeItem('usuarioApp');
+  }
+
+  salirOtraVez(){
+    NavbarComponent.updateUserStatus.subscribe(res => {
+      this.cambiar();
+    })
+    this.isLogued=false;
+    this.ingresarService.logout();
   }
   alHome()
   {
     this.router.navigate(['bienvenido']);
   }
-
+  cargarContainer(){
+    this.router.navigate(['producto/cargaContainer']);
+  }
 
   altaProducto()
   {

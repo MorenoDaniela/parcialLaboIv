@@ -6,4 +6,5 @@ export class Producto {
     pais!: string;
     comestible: boolean = false;
     fecha!:string;
+    id!:string;
 }

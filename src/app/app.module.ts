@@ -29,6 +29,8 @@ import { ModificacionContainerComponent } from './Componentes/modificacion-conta
 import { ListaContainerComponent } from './Componentes/lista-container/lista-container.component';
 import { RegistroAdministradorComponent } from './Componentes/registro-administrador/registro-administrador.component';
 import { RegistroEmpleadoComponent } from './Componentes/registro-empleado/registro-empleado.component';
+import { CargarContainerComponent } from './Componentes/cargar-container/cargar-container.component';
+import { ContainerDetalleComponent } from './Componentes/container-detalle/container-detalle.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +50,9 @@ import { RegistroEmpleadoComponent } from './Componentes/registro-empleado/regis
     ModificacionContainerComponent,
     ListaContainerComponent,
     RegistroAdministradorComponent,
-    RegistroEmpleadoComponent
+    RegistroEmpleadoComponent,
+    CargarContainerComponent,
+    ContainerDetalleComponent
   ],
   imports: [
     BrowserModule,

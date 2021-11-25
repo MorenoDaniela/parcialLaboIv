@@ -37,4 +37,10 @@ export class ProductoService {
         fecha:new Date().toLocaleString()});
   }
 
+  UpdateCapacidad(id:string, capacidad:number)
+  {
+    console.log(id +""+ capacidad);
+    this.db.collection("productos").doc(id).update({stock:capacidad});
+  }
+
 }

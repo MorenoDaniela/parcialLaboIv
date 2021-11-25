@@ -66,8 +66,14 @@ export class ListaContainerComponent implements OnInit {
         containerNuevo.marca = producto.payload.doc.data().marca;
         containerNuevo.capacidad= producto.payload.doc.data().capacidad;
         containerNuevo.id= producto.payload.doc.id;
-        
-        console.log(containerNuevo);
+        if (producto.payload.doc.data().arrayProducto != undefined)
+        {
+
+          containerNuevo.arrayProducto = producto.payload.doc.data().arrayProducto;
+        }else{
+          containerNuevo.arrayProducto = [];
+        }
+        // console.log(containerNuevo);
           this.listaContainers.push(containerNuevo);       
        })
      })

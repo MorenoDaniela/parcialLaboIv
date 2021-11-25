@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Jumbotron example · Bootstrap v5.1</title>
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+  </head>
+  <body>
+    
+<main>
+  <div class="container py-4">
+    <div class="row">
+       
+        <div class="col-6">
+            <div class="table-responsive">
+                <app-lista-container (eventoContainerSeleccionado)="pasoContainerADetalle($event)"></app-lista-container>
+            </div>
+           
+        </div>
+        <div class="col-6">
+            <app-lista-productos (eventoProductoSeleccionado)="pasoProductoADetalle($event)"></app-lista-productos>
+        </div>
+    </div>
+    <div class="row">
+        <form [formGroup]="formulario" (ngSubmit)="aceptar()">
+            <div class="input-group mb-3">
+                <span class="input-group-text" >Cantidad a Enviar</span>
+                <input type="number" class="form-control"  placeholder="cantidad A Enviar" formControlName="cantidadAEnviar">
+                <span class="text-danger" *ngIf="formulario.get('cantidadAEnviar')?.hasError('min') && formulario.get('cantidadAEnviar')?.touched">No supera el minimo.</span>
+                <span class="text-danger" *ngIf="formulario.get('cantidadAEnviar')?.hasError('required') && formulario.get('cantidadAEnviar')?.touched">Es requerido.</span>
+                <span class="text-danger" *ngIf="formulario.get('cantidadAEnviar')?.hasError('max') && formulario.get('cantidadAEnviar')?.touched">Supera el maximo.</span>
+                <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid">Enviar</button>
+              </div>
+            <!-- <div class="col-6">
+                <label class="text-muted">cantidad A Enviar
+                    <input class="form-control" type="number" placeholder="cantidad A Enviar" formControlName="cantidadAEnviar">
+                </label>
+               
+                <span class="text-danger" *ngIf="formulario.get('cantidadAEnviar')?.hasError('min') && formulario.get('cantidadAEnviar')?.touched">No supera el minimo.</span>
+                <span class="text-danger" *ngIf="formulario.get('cantidadAEnviar')?.hasError('required') && formulario.get('cantidadAEnviar')?.touched">Es requerido.</span>
+                <span class="text-danger" *ngIf="formulario.get('cantidadAEnviar')?.hasError('max') && formulario.get('cantidadAEnviar')?.touched">Supera el maximo.</span>
+            </div>
+            <div class="col-6" >
+                <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid">Enviar</button>
+              </div> -->
+            
+          </form>
+    </div>
+        
+        <div class="row ">
+        <div class="col-md-6">
+            <app-producto-detalle [productoAMostrar]="productoSeleccionado"></app-producto-detalle>
+        </div>
+        <div class="col-md-6">
+            <app-container-detalle [containerAMostrar]="containerSeleccionado"></app-container-detalle>
+        </div>
+        
+        </div>
+    
+    <footer class="pt-3 mt-4 text-muted border-top">
+      &copy; 2021
+    </footer>
+  </div>
+</main>
+
+
+    
+  </body>
+</html>
