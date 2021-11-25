@@ -45,28 +45,32 @@ export class CargarContainerComponent implements OnInit {
     let container = this.containerSeleccionado;
     let cantidad = formulario.get('cantidadAEnviar');
 
-    // formulario.get('container')?.valueChanges
-    // .subscribe(elcontainer => {
+    let capacidadContainer = container.capacidad;
+    let stockProducto = producto.stock;
+    let max:any;
+    if (capacidadContainer>stockProducto)
+    {
+      max = stockProducto;
       
-    // });
-    console.log(producto.codigo);
-    if (producto.codigo!=undefined && container.codigo!=undefined)
+    }else{
+      max= capacidadContainer;
+    }
+    console.log(max);
+
+    if (producto.codigo!=undefined )
       {
-       cantidad?.setValidators(Validators.min(parseInt(this.productoSeleccionado.stock)));
-       cantidad?.setValidators(Validators.max(parseInt(this.containerSeleccionado.capacidad)));
-       cantidad?.setValidators(Validators.required);
-      }
-      // else{
-      //   cantidad?.setValidators(Validators.min(1000));
-      // }
-      // if ()
-      // {
-       
-      // }
-      // else{
-      //   cantidad?.setValidators(Validators.max(2000));
-      // }
+       cantidad?.setValidators(Validators.min(max));
+      // cantidad?.setValidators(Validators.required);
       cantidad?.updateValueAndValidity();
+      }
+      if (container.codigo!=undefined)
+      {
+       cantidad?.setValidators(Validators.max(max));
+      //  cantidad?.setValidators(Validators.required);
+       cantidad?.updateValueAndValidity();
+      }
+      
+     
   }
   pasoProductoADetalle(event:any)
   {
